@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mykube-rs
+spec:
+  replicas: 2
+  selector:
+    matchExpression:
+      - { key: env, operator: IN, values: [production] }
+      - { key: region, operator: IN, values: [IN] }
+    template:
+      metadata:
+        name: mypod
+        labels:
+          env: production
+          region: IN
+          dc: "2"
+        spec:
+          containers:
+            - name: mypod-os
+              image: httpd 

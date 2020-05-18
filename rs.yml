@@ -15,7 +15,7 @@ spec:
         env: production
         region: IN
         dc: "2"
-      spec:
-        containers:
-          - name: mypod-os
-            image: httpd 
+    spec:
+      containers:
+        - name: mypod-os
+          image: httpd 
